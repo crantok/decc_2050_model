@@ -8,14 +8,14 @@ rescue LoadError => e
   version = IO.readlines(File.join(File.dirname(__FILE__),"CHANGES")).join[/#\s*(\d+\.\d+\.\d+)\b/,1]
 end
 
-if `git status --porcelain | wc -l`.to_i > 0
-  version = version + "pre"
-end
+#if `git status --porcelain | wc -l`.to_i > 0
+#  version = version + "pre"
+#end
 
 Gem::Specification.new do |s|
   s.name = "decc_2050_model"
   s.required_ruby_version = ">1.9.1"
-  s.version = version
+  s.version = version + '.madlabhack'
   s.add_dependency('ffi','>= 1.0.11')
   s.add_development_dependency('excel_to_code')
   s.author = "Thomas Counsell, Department of Energy and Climate Change, Her Majesty's Government, UK"
